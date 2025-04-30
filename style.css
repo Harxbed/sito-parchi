@@ -1,0 +1,1626 @@
+/* -------------------------------- */
+/* ----------- GENERAL ------------ */
+/* -------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;    
+}
+
+ul {
+    list-style-type: none;
+}
+
+.separator {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.hero {
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    position: relative;
+    color: white;
+}
+
+.hero-attivita {
+    background-image: url('./img/img-attivita/hero-attivita.png');
+}
+
+.hero-parchi {
+    background-image: url('./img/img-parchi/hero-parchi.png');
+}
+
+.hero-parco-abruzzo {
+    background-image: url('./img/img-abruzzo/abruzzo-hero.jpg');
+}
+
+.hero-toscana-park {
+    background-image: url('./img/img-toscana/hero-toscana.jpg');
+}
+
+.hero-vesuvio-park {
+    background-image: url('./img/img-vesuvio/vesuvio-hero.jpg');
+}
+
+.hero-etna-park {
+    background-image: url('./img/img-etna/hero-etna.jpg');
+}
+
+
+.navbar {
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.logo {
+    width: 153px;
+    height: 18px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    background: rgba(217, 217, 217, 0.4);
+    padding: 13px 34px;
+    border-radius: 16px;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 12px;
+    transition: text-shadow .3s;
+}
+
+.nav-links a:hover {
+    text-shadow: 0 0 .6px #FFFFFF, 0 0 .6px #FFFFFF;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.page-container {
+    max-width: 940px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+/* -------------------------------- */
+/* ----------- HOMEPAGE ----------- */
+/* -------------------------------- */
+
+.featured-parks, .featured-activities {
+    text-align: center;
+}
+
+.featured-parks {
+    margin: 60px auto;
+}
+
+.featured-activities {
+    margin-bottom: 60px;
+}
+
+.home-section-subtitle, .activity-card-text-subtitle {
+    font-size: 14px;
+    color: #686463;
+    margin-bottom: 8px;
+}
+
+.featured-parks h2, .featured-activities h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.park-grid-home {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.park-grid-home .card-park {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    border-radius: 16px;
+    height: 290px;
+    text-align: left;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.park-grid-home .card-park:not(:nth-child(4))::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+}
+
+.park-grid-home .card-park:nth-child(5)::before {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 50%);
+}
+
+.card-park:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.card-park .park-category {
+    font-size: 12px;
+    margin-bottom: 4px;
+    color: white;
+    font-weight: 300;
+}
+
+.card-park h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+}
+
+#vesuvio-card-park {
+    background-image: url('/img/img-home/vesuvio-home.jpg');
+    grid-column: 1 / span 2;
+}
+
+#sila-card-park {
+    background-image: url('/img/img-home/sila-home.jpeg');
+    grid-column: 3 / span 1;
+}
+
+#etna-card-park {
+    background-image: url('/img/img-home/etna-home.jpeg');
+    grid-column: 1 / span 1;
+}
+
+#toscano-card-park {
+    background-image: url('/img/img-home/toscana-home.jpg');
+    grid-column: 2 / span 2;
+}
+
+#abruzzo-card-park {
+    background-image: url('/img/img-home/abruzzo-home.jpeg');
+    grid-column: 1 / span 3;
+}
+
+a.show-more-btn {
+    padding: 10px 24px;
+    border-radius: 14px;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 40px;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+a.show-more-btn:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
+
+.activities-card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+  
+.activity-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: white;
+    text-decoration: none;
+}
+  
+.activity-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+  
+.activity-card-image {
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+}
+  
+.activity-card-text {
+    padding: 20px 25px 25px;
+    text-align: left;
+}
+  
+.activity-card-text-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 12px 0;
+    color: black;
+}
+  
+.activity-card-text-description {
+    color: #686463;
+    font-size: 15px;
+    margin: 0;
+    line-height: 19px;
+}
+
+footer {
+    background-color: #000;
+    color: white;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.footer-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-nav li {
+    margin-left: 25px;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.footer-nav a:hover {
+    opacity: 1;
+} 
+
+/* -------------------------------- */
+/* ----------- ATTIVITA ----------- */
+/* -------------------------------- */
+
+.park-activities-section-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.park-activity-card-container {
+    display: flex;
+    gap: 60px;
+}
+
+.park-activity-card-container:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.park-activity-image-wrapper-container {
+    flex: 0 0 250px; 
+    height: 250px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.park-activity-image-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.park-activity-title-heading-element {
+    margin-bottom: 20px;
+}
+
+.park-activity-description-paragraph-element {
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.park-activity-description-paragraph-element strong {
+    color: #444;
+    font-weight: 600;
+}
+
+.park-activity-description-paragraph-element:last-child {
+    margin-bottom: 0;
+}
+
+.park-activity-list-item-element {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 20px; 
+    font-weight: 700; 
+    color: #444;
+}
+
+.park-activity-list-item-element::before {
+    content: "•"; 
+    position: absolute;
+    left: 5px;
+    color: #444;
+    font-size: 18px;
+}
+
+.park-activity-icon-indicator {
+    margin-right: 10px;
+}
+
+/* Adventure Call-to-Action Styles */
+.adventure-cta-section {
+    margin: 60px auto;
+    max-width: 900px;
+    padding-top: 60px;
+    border-top: 1px solid #eaeaea;
+}
+
+.adventure-cta-container {
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.adventure-cta-img-container {
+    width: 50%;
+}
+
+.adventure-cta-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.adventure-cta-content {
+    width: 50%;
+    padding: 70px;
+    background-color: #F3F3F3;
+}
+
+.adventure-cta-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #222;
+    line-height: 1.2;
+}
+
+.adventure-cta-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.show-more-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 2px solid #222;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #222;
+    transition: all 0.3s ease;
+}
+
+.show-more-btn:hover {
+    background-color: #222;
+    color: #fff;
+}
+
+/* Stili per l'intestazione del parco */
+.parco-header {
+    margin-bottom: 32px;
+}
+
+.parco-header h1 {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+.parco-tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    padding: 5px 13px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Stili per la sezione introduttiva */
+.parco-introduzione {
+    margin-bottom: 48px;
+}
+
+.parco-introduzione p {
+    margin-bottom: 24px;
+    font-size: 18px;
+    line-height: 19px;
+}
+
+.parco-introduzione p:last-child {
+    margin-bottom: 0;
+}
+
+/* Stili per la galleria del parco */
+.parco-gallery {
+    margin: 48px 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 15px;
+    height: 600px;
+}
+
+.gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Layout specifico per le immagini */
+.gallery-item-left-top {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.gallery-item-left-bottom {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.gallery-item-right {
+    grid-column: 2;
+    grid-row: 1 / span 2; /* Occupa entrambe le righe */
+    height: 100%;
+}
+
+/* Stili per la sezione Punti di interesse */
+.punti-interesse {
+    margin: 64px 0;
+}
+
+.punti-interesse h2 {
+    font-size: 32px;
+    margin-bottom: 32px;
+    color: #333;
+}
+
+.punti-testo p {
+    margin-bottom: 24px;
+    line-height: 19px;
+    font-size: 18px;
+    color: #444;
+}
+
+.punti-testo strong {
+    color: black;
+    font-weight: 600;
+}
+
+/* Stili per la galleria del Lago di Barrea */
+.location-gallery {
+    margin: 48px 0 64px 0;
+}
+
+.location-images {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 13px;
+}
+
+.location-image {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 350px;
+}
+
+.location-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.location-caption {
+    text-align: center;
+    margin-top: 13px;
+}
+
+.location-caption p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Stili per la sezione Attività specifiche */
+.attivita-sezione {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.attivita-specifiche {
+    margin: 64px 0;
+}
+
+.attivita-specifiche h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.attivita-item {
+    display: flex;
+    margin-bottom: 32px;
+    align-items: flex-start;
+}
+
+.attivita-icon {
+    flex: 0 0 40px;
+    margin-right: 20px;
+    margin-top: 3px; 
+}
+
+.attivita-icon img {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.attivita-content {
+    flex: 1;
+}
+
+.attivita-content h3 {
+    font-size: 20px;
+    margin-bottom: 11px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.attivita-content p {
+    font-size: 17px;
+    line-height: 19px;
+    color: #555;
+    margin: 0;
+}
+
+/* Stile per l'ultima attività (senza margine inferiore) */
+.attivita-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Stili per la sezione Flora e Fauna */
+.flora-fauna {
+    margin: 64px 0;
+}
+
+.flora-fauna h2 {
+    font-size: 32px;
+    margin-bottom: 32px;
+    color: #333;
+}
+
+.flora-fauna-content {
+    margin-bottom: 40px;
+}
+
+.flora-fauna-content p {
+    margin-bottom: 24px;
+    line-height: 19px;
+    font-size: 18px;
+    color: #444;
+}
+
+.flora-fauna-content p:last-child {
+    margin-bottom: 0;
+}
+
+.flora-fauna-content strong {
+    color: black;
+    font-weight: 600;
+}
+
+/* Stili per la galleria della fauna */
+.fauna-gallery {
+    margin: 40px 0 64px 0;
+}
+
+.fauna-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 13px;
+}
+
+.fauna-image {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 300px;
+}
+
+.fauna-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.fauna-caption {
+    text-align: center;
+    margin-top: 13px;
+    color: #777;
+    font-size: 16px;
+}
+
+/* Stili per la sezione Informazioni utili */
+.informazioni-utili {
+    margin: 64px 0;
+}
+
+.informazioni-utili h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 35px;
+    align-items: flex-start;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-icon {
+    flex: 0 0 40px;
+    margin-right: 20px;
+    margin-top: 3px;
+}
+
+.info-icon img {
+    width: 30px;
+    height: 30px;
+    display: block;
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-content h3 {
+    font-size: 20px;
+    margin-bottom: 11px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.info-content p {
+    font-size: 17px;
+    line-height: 19px;
+    color: #555;
+    margin: 0;
+}
+
+/* All Parks Section Styles */
+ #all-parks-park-page .all-parks-row-left-park{
+     flex-basis: 40%;
+ }
+
+#all-parks-park-page .all-parks-row-right-park{
+    flex-basis: 60%;
+}
+
+.all-parks-section {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/*.all-parks-container {
+    width: 100%;
+    padding-top: 32px;
+    border-top: 1px solid #eaeaea;
+}*/
+
+.all-parks-title {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 40px;
+}
+
+.parks-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 30px;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 110px;
+}
+
+.parks-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.park-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.all-parks-row-park-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: black;
+    line-height: 19px;
+}
+
+.park-region, .all-parks-row-park-activities {
+    font-size: 14px;
+    color: #686868;
+}
+
+.park-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #111;
+    transition: all 0.3s ease;
+}
+
+.arrow-circle svg {
+    fill: white;
+    width: 20px;
+    height: 20px;
+}
+
+.park-link:hover .arrow-circle {
+    background-color: #555;
+    transform: translateX(5px);
+}
+
+/* -------------------------------- */
+/* ------------ PARCHI ------------ */
+/* -------------------------------- */
+
+.parks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    margin: 40px 0;
+}
+
+.park-block-container {
+    display: flex;
+    gap: 70px;
+}
+
+.park-block-img-container {
+    width: 270px;
+    height: 185px;
+}
+
+.park-block-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    display: block;
+}
+
+.park-block-text-container {
+    flex: 1;
+    align-self: center;
+}
+
+.park-block-title {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.park-block-title-link {
+    color: #000;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.3s ease;
+    cursor: pointer;
+}
+
+.park-block-title-link:hover {
+    color: #000;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 1);
+    cursor: pointer;
+}
+
+.park-block-subtitle {
+    font-size: 16px;
+    color: #686463;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.park-block-paragraph {
+    line-height: 1.5;
+    color: #444;
+    font-size: 16px;
+}
+
+/* ===== PARCO NAZIONALE DELLA SILA ===== */
+
+.hero-sila-park {
+    background-image: url('./img/img-sila/hero-sila.jpg');
+}
+
+/* Back Link */
+.back-link {
+    max-width: 940px;
+    padding: 0 20px;
+    margin: 60px auto 0 auto;
+}
+
+.back-link a {
+    display: inline-flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.back-link a:hover {
+    color: #666;
+}
+
+/* Sezione introduttiva */
+.single-park-paragraph-container {
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.page-container .single-park-paragraph-container:first-child {
+    margin: 20px auto 40px;
+}
+
+.single-park-title {
+    text-align: start;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.featured-park-badge {
+    display: inline-block;
+    background-color: #f5f5f5;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+.featured-park-label {
+    font-size: 13px;
+    color: #666;
+}
+
+.single-park-texts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: #686463;
+}
+
+.single-park-texts-container p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.single-park-texts-container p:last-child {
+    margin-bottom: 0;
+}
+
+.single-park-texts-container strong {
+    font-weight: 600;
+    color: #333;
+}
+
+.single-park-features-container {
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+.single-park-features-container li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 4px;
+}
+
+.single-park-features-container li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #333;
+}
+
+/* Gallery Layout */
+.single-park-gallery-grid-container {
+    display: flex;
+    gap: 15px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* Colonna sinistra con due immagini */
+.single-park-gallery-column-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.single-park-gallery-column-left-top,
+.single-park-gallery-column-left-bottom {
+    height: calc(50% - 7.5px); /* Metà dell'altezza meno metà del gap */
+    overflow: hidden;
+}
+
+/* Colonna destra con una immagine grande */
+.single-park-gallery-column-right {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Stile per tutte le immagini nelle gallerie */
+.single-park-gallery-grid-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Sezione punti di interesse */
+
+.single-park-title-container {
+    margin-bottom: 30px;
+}
+
+/* Gallery with caption - due immagini affiancate con didascalia */
+.park-dual-gallery {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.dual-gallery-grid {
+    display: flex;
+    gap: 15px;
+}
+
+.dual-gallery-item {
+    flex: 1;
+    height: 300px;
+}
+
+.dual-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.dual-gallery-caption {
+    text-align: center;
+    margin-top: 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+/* Sezione attività specifiche */
+.single-park-activities-section {
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.featured-park-badge {
+    margin-bottom: 30px;
+}
+
+.single-park-activities-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.single-park-activity-item {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.single-park-activity-item img {
+    width: 24px;
+    height: 24px;
+    margin-right: 20px;
+    object-fit: contain;
+    box-shadow: none;
+}
+
+.single-park-activity-texts {
+    flex: 1;
+}
+
+.single-park-activity-title {
+    margin-bottom: 10px;
+}
+
+.single-park-activity-description {
+    font-size: 16px;
+    line-height: 19px;
+    color: #686463;
+}
+
+.single-park-activity-list {
+    margin-top: 10px;
+}
+
+.single-park-activity-list li {
+    position: relative;
+    padding-left: 20px;
+    line-height: 19px;
+    color: #686463;
+    margin-bottom: 10px;
+}
+
+.single-park-activity-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #686463; 
+}
+
+.single-park-activity-list strong {
+    font-weight: 600;
+    color: #333; 
+    margin-right: 5px;
+}
+
+.all-parks-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.all-parks-container {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.all-parks-row {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.all-parks-row-left-park {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 50%;
+}
+
+.all-parks-row-right-park {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 50%;
+}
+
+.all-parks-row-texts {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== MEDIA QUERIES ===== */
+@media (max-width: 1024px) {
+    .hero-text {
+        width: 70%;
+    }
+    
+    .hero-text h1 {
+        font-size: 48px;
+    }
+    
+    .adventure-cta-content {
+        padding: 50px;
+    }
+    
+    .gallery-grid {
+        height: 500px;
+    }
+    
+    .page-container {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .parks-grid, .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .single-park-gallery-grid-container {
+        flex-direction: column;
+    }
+    
+    .single-park-gallery-column-left-top,
+    .single-park-gallery-column-left-bottom {
+        height: 250px;
+    }
+    
+    .single-park-gallery-column-right {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar adjustments - keep the navbar horizontal with logo and hamburger */
+    .navbar {
+        padding: 0 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 35px;
+    }
+    
+    /* Hide the actual nav links */
+    .nav-links {
+        display: none;
+    }
+    
+    /* Add "hamburger" icon - you'll need to add this to your HTML */
+    .navbar:after {
+        content: '☰';  /* Unicode hamburger icon */
+        display: block;
+        font-size: 24px;
+        color: white;
+    }
+    
+    /* Hero text adjustments */
+    .hero-text {
+        width: 85%;
+        padding: 0 20px;
+    }
+    
+    .hero-text h1 {
+        font-size: 34px;
+        line-height: 1.2;
+    }
+    
+    .hero-text p {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    /* Consistent padding across all pages */
+    .page-container {
+        padding: 0 20px;
+    }
+
+    .park-grid-home {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Make sure ALL cards are same layout */
+    #vesuvio-card-park, 
+    #sila-card-park, 
+    #etna-card-park, 
+    #toscano-card-park, 
+    #abruzzo-card-park {
+        grid-column: auto;
+    }
+
+    .park-grid-home .card-park {
+        height: 240px;
+    }
+    
+    .activities-card-container {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .activity-card {
+        max-width: 100%;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    
+    .gallery-item {
+        height: 300px;
+    }
+    
+    .gallery-item-right {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    .location-images {
+        flex-direction: column;
+    }
+    
+    .fauna-images {
+        grid-template-columns: 1fr;
+    }
+
+    .back-link {
+        margin: 30px auto 0 auto;
+        padding: 0 20px;
+    }
+
+    /* PARCHI */
+    .parks-container {
+        margin: 20px 0 40px 0;
+    }
+
+    .park-block-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .park-block-img-container {
+        width: 100%;
+        height: 250px;
+    }
+
+    .park-block-img {
+        object-fit: cover;
+    }
+
+    .all-parks-row {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .all-parks-row-left-park, .all-parks-row-right-park {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .adventure-cta-content {
+        padding: 40px 30px;
+    }
+
+    /* Attività */
+    .park-activities-section-container {
+        margin: 20px 0 40px 0;
+    }
+
+    .park-activity-card-container {
+        gap: 20px;
+        flex-direction: column;
+    }
+    
+    .park-activity-image-wrapper-container {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 220px;
+    }
+
+    .all-parks-title {
+        margin-bottom: 20px;
+    }
+
+    /* Single Park */
+    .single-park-title-container {
+        margin-bottom: 20px;
+    }
+    
+    .attivita-item {
+        flex-direction: column;
+    }
+    
+    .attivita-icon {
+        margin-bottom: 10px;
+    }
+    
+    .info-item {
+        flex-direction: column;
+    }
+    
+    .info-icon {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    .adventure-cta-container {
+        flex-direction: column;
+    }
+
+    .adventure-cta-img-container {
+        width: 100%;
+        height: 200px;
+    }
+
+    .adventure-cta-content {
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    .adventure-cta-description {
+        margin-bottom: 20px;
+    }
+    
+    .dual-gallery-grid {
+        flex-direction: column;
+    }
+    
+    .dual-gallery-item {
+        height: 220px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        height: 60vh; /* Shorter hero section on mobile */
+    }
+    
+    .hero-text h1 {
+        font-size: 28px;
+    }
+    
+    .hero-text p {
+        font-size: 15px;
+    }
+    
+    .parco-header h1 {
+        font-size: 32px;
+    }
+    
+    .punti-interesse h2, 
+    .attivita-specifiche h2, 
+    .flora-fauna h2, 
+    .informazioni-utili h2,
+    .single-park-title {
+        font-size: 28px;
+    }
+    
+    .parco-introduzione p,
+    .punti-testo p,
+    .flora-fauna-content p,
+    .single-park-texts-container p {
+        font-size: 16px;
+    }
+    
+    .attivita-content h3,
+    .info-content h3,
+    .single-park-activity-title {
+        font-size: 18px;
+    }
+
+    /* Ensure consistent padding for all pages */
+    .page-container, 
+    .single-park-paragraph-container,
+    .back-link,
+    .all-parks-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 490px) {
+    .hero {
+        height: 80vh;
+    }
+    
+    .hero-text h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+    
+    .hero-text p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    .featured-parks h2, .featured-activities h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .park-grid-home {
+        grid-template-columns: 1fr;
+    }
+
+    /* Make sure ALL cards are same layout in smaller screens */
+    #vesuvio-card-park, 
+    #sila-card-park, 
+    #etna-card-park, 
+    #toscano-card-park, 
+    #abruzzo-card-park {
+        grid-column: 1;
+    }
+
+    .park-grid-home .card-park {
+        height: 200px;
+    }
+
+    .activities-card-container {
+        flex-direction: column;
+    }
+    
+    .activity-card-image {
+        height: 200px;
+    }
+    
+    .fauna-image {
+        height: 220px;
+    }
+    
+    .single-park-gallery-column-left-top,
+    .single-park-gallery-column-left-bottom,
+    .single-park-gallery-column-right {
+        height: 200px;
+    }
+
+    /* Single Park */
+    .single-park-paragraph-container {
+        margin: 30px auto;
+    }
+    
+    /* Ensure all containers have proper padding */
+    .page-container, 
+    .back-link, 
+    .single-park-paragraph-container,
+    .all-parks-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .footer-container {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .footer-nav {
+        width: 100%;
+    }
+
+    .footer-nav ul {
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .footer-nav li {
+        margin: 0;
+    }
+    
+    .all-parks-row-left-park, 
+    .all-parks-row-right-park {
+        justify-content: space-between;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-text h1 {
+        font-size: 22px;
+    }
+    
+    .hero-text p {
+        font-size: 13px;
+    }
+    
+    .card-park h3 {
+        font-size: 16px;
+    }
+    
+    .park-block-title {
+        font-size: 20px;
+    }
+    
+    .show-more-btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}
