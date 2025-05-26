@@ -41,7 +41,7 @@ ul {
 }
 
 .hero-parco-abruzzo {
-    background-image: url('./img/img-abruzzo/abruzzo-hero.jpg');
+    background-image: url('img/img-abruzzo/abruzzo-hero.jpg');
 }
 
 .hero-toscana-park {
@@ -154,42 +154,50 @@ ul {
 }
 
 .park-grid-home .card-park {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: end;
+    display: block;
+    position: relative;
+    overflow: hidden;
     border-radius: 16px;
     height: 290px;
-    text-align: left;
-    background-size: cover;
-    background-position: center;
     color: white;
-    padding: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+    text-decoration: none;
+}
+
+.card-park img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.card-park::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
     z-index: 1;
 }
 
-.park-grid-home .card-park:not(:nth-child(4))::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 16px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
-    z-index: -1;
-}
-
-.park-grid-home .card-park:nth-child(5)::before {
+.card-park:nth-child(5)::before {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 50%);
 }
 
 .card-park:hover {
     transform: scale(1.02);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.text-overlay {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    z-index: 2;
+    text-align: left;
 }
 
 .card-park .park-category {
@@ -205,28 +213,28 @@ ul {
     margin: 0;
 }
 
+/* Grid layout per ogni card */
 #vesuvio-card-park {
-    background-image: url('/img/img-home/vesuvio-home.jpg');
     grid-column: 1 / span 2;
 }
 
 #sila-card-park {
-    background-image: url('/img/img-home/sila-home.jpeg');
     grid-column: 3 / span 1;
 }
 
 #etna-card-park {
-    background-image: url('/img/img-home/etna-home.jpeg');
     grid-column: 1 / span 1;
 }
 
 #toscano-card-park {
-    background-image: url('/img/img-home/toscana-home.jpg');
     grid-column: 2 / span 2;
 }
 
+#toscano-card-park::before {
+    display: none;
+}
+
 #abruzzo-card-park {
-    background-image: url('/img/img-home/abruzzo-home.jpeg');
     grid-column: 1 / span 3;
 }
 
@@ -274,9 +282,9 @@ a.show-more-btn:hover {
 }
   
 .activity-card-image {
+    width: 100%;
     height: 240px;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
 }
   
 .activity-card-text {
@@ -358,17 +366,12 @@ footer {
     margin-bottom: 0;
 }
 
-.park-activity-image-wrapper-container {
-    flex: 0 0 250px; 
+.park-activity-image-element {
+    width: 250px;
     height: 250px;
     border-radius: 16px;
-    overflow: hidden;
-}
-
-.park-activity-image-element {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
+    display: block;
 }
 
 .park-activity-title-heading-element {
@@ -425,14 +428,11 @@ footer {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.adventure-cta-img-container {
-    width: 50%;
-}
-
 .adventure-cta-image {
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: auto;
     object-fit: cover;
+    display: block;
 }
 
 .adventure-cta-content {
@@ -888,16 +888,12 @@ footer {
     gap: 70px;
 }
 
-.park-block-img-container {
+.park-block-img {
     width: 270px;
     height: 185px;
-}
-
-.park-block-img {
-    width: 100%;
-    height: 100%;
     border-radius: 8px;
     display: block;
+    object-fit: cover;
 }
 
 .park-block-text-container {
@@ -1042,7 +1038,6 @@ footer {
     max-width: 900px;
 }
 
-/* Colonna sinistra con due immagini */
 .single-park-gallery-column-left {
     flex: 1;
     display: flex;
@@ -1050,58 +1045,48 @@ footer {
     gap: 15px;
 }
 
-.single-park-gallery-column-left-top,
-.single-park-gallery-column-left-bottom {
-    height: calc(50% - 7.5px); /* Metà dell'altezza meno metà del gap */
-    overflow: hidden;
+.single-park-gallery-column-left img {
+    height: calc(50% - 7.5px);
 }
 
-/* Colonna destra con una immagine grande */
 .single-park-gallery-column-right {
     flex: 1;
     overflow: hidden;
 }
 
-/* Stile per tutte le immagini nelle gallerie */
 .single-park-gallery-grid-container img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
     border-radius: 8px;
     display: block;
+    height: 100%;
 }
 
 /* Sezione punti di interesse */
-
 .single-park-title-container {
     margin-bottom: 30px;
 }
 
-/* Gallery with caption - due immagini affiancate con didascalia */
 .park-dual-gallery {
     max-width: 900px;
     margin: 0 auto;
-}
-
-.dual-gallery-grid {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
+    justify-content: space-between;
 }
 
-.dual-gallery-item {
-    flex: 1;
+.dual-gallery-img {
+    flex: 1 1 calc(50% - 7.5px); /* Due immagini con spazio di 15px tra di loro */
     height: 300px;
-}
-
-.dual-gallery-item img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
     border-radius: 8px;
     display: block;
+    width: calc(50% - 7.5px);
 }
 
 .dual-gallery-caption {
+    width: 100%;
     text-align: center;
     margin-top: 10px;
     color: #666;
@@ -1244,14 +1229,19 @@ footer {
     .single-park-gallery-grid-container {
         flex-direction: column;
     }
-    
-    .single-park-gallery-column-left-top,
-    .single-park-gallery-column-left-bottom {
-        height: 250px;
+
+    .single-park-gallery-grid-container {
+        flex-direction: column;
     }
-    
+
+    .single-park-gallery-column-left,
     .single-park-gallery-column-right {
-        height: 350px;
+        flex: unset;
+    }
+
+    .single-park-gallery-column-left img,
+    .single-park-gallery-column-right img {
+        height: 300px;
     }
 }
 
@@ -1362,13 +1352,9 @@ footer {
         gap: 20px;
     }
 
-    .park-block-img-container {
+    .park-block-img {
         width: 100%;
         height: 250px;
-    }
-
-    .park-block-img {
-        object-fit: cover;
     }
 
     .all-parks-row {
@@ -1394,9 +1380,8 @@ footer {
         gap: 20px;
         flex-direction: column;
     }
-    
-    .park-activity-image-wrapper-container {
-        flex: 0 0 auto;
+
+    .park-activity-image-element {
         width: 100%;
         height: 220px;
     }
@@ -1432,9 +1417,9 @@ footer {
         flex-direction: column;
     }
 
-    .adventure-cta-img-container {
-        width: 100%;
+    .adventure-cta-image {
         height: 200px;
+        width: 100%;
     }
 
     .adventure-cta-content {
@@ -1445,13 +1430,16 @@ footer {
     .adventure-cta-description {
         margin-bottom: 20px;
     }
-    
-    .dual-gallery-grid {
-        flex-direction: column;
+
+    .single-park-gallery-column-left img,
+    .single-park-gallery-column-right img {
+        height: 200px;
     }
-    
-    .dual-gallery-item {
-        height: 220px;
+
+    .dual-gallery-img {
+        width: 100%;
+        height: 200px;
+        flex: 1 1 100%;
     }
 }
 
@@ -1542,10 +1530,6 @@ footer {
 
     .activities-card-container {
         flex-direction: column;
-    }
-    
-    .activity-card-image {
-        height: 200px;
     }
     
     .fauna-image {
